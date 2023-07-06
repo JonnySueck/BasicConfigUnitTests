@@ -1,5 +1,6 @@
 package com.example.basicconfigunittest
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,8 +47,23 @@ fun GreetingPreview() {
 }
 
 class StringHelper {
+
     fun isPositiveNumber(number: Int) : Boolean {
         return number > 0
     }
+fun getBuildClient(context: Context) : Class<*>? {
+    try {
+        var buildClient = Class.forName(context.packageName)
+        var fields = buildClient.fields
+        var name = buildClient.name
+        return buildClient
+    } catch(e: ClassNotFoundException) {
+        e.printStackTrace()
+    } catch(e: NoSuchFieldException) {
+        e.printStackTrace()
+    } catch(e: IllegalAccessException) {
+        e.printStackTrace()
+    }
+    return null
 }
-
+}
