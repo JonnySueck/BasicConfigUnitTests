@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("boolean", "DEV_MODE", "true")
+            buildConfigField("boolean", "DEV_MODE_ENABLED", "true")
             buildConfigField("String", "API_KEY", "\"123456789A\"")
         }
         release {
