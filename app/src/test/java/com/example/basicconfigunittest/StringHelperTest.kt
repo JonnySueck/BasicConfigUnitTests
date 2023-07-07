@@ -3,14 +3,9 @@ package com.example.basicconfigunittest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
-@RunWith(RobolectricTestRunner::class)
 class StringHelperTest {
     lateinit var SUT: StringHelper
-    var namespace = "com.example.basicconfigunittest"
 
     @Before
     fun setUp(){
@@ -27,8 +22,8 @@ class StringHelperTest {
 
     @Test
     fun testNamespace() {
-        val app = RuntimeEnvironment.getApplication()
-        val appNamespace = app?.packageName.toString()
+        var namespace = "com.example.basicconfigunittest"
+        val appNamespace = BuildConfig.APPLICATION_ID
         assertEquals(appNamespace, namespace)
     }
 
@@ -49,8 +44,4 @@ class StringHelperTest {
         val APIKey = BuildConfig.API_KEY
         assertEquals(APIKey, testKey)
     }
-
 }
-
-
-
